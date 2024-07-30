@@ -54,7 +54,7 @@ Before you begin, ensure you have:
 1. **Clone the Repository**:
    ```bash
    git clone https://kanwarazeem/modbus-rs485-arduino.git
-   cd modbus-rs485-arduino
+   cd ModBus-protocol
    ```
 
 2. **Install the Modbus Library**:
@@ -104,5 +104,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - Thanks to the open-source community for their contributions to Modbus libraries and documentation.
 - Special mention to [Your Contributors](https://github.com/kanwarazeem/modbus-rs485-arduino/graphs/contributors) for their valuable input and feedback.
 
-We hope this project helps you successfully implement and understand the Modbus protocol over RS-485 using Arduino. If you encounter any issues or have questions, please open an issue or reach out via our [discussion forum](https://github.com/kanwarazeem/modbus-rs485-arduino/discussions). Happy coding!
-```
+We hope this project helps you successfully implement and understand the Modbus protocol over RS-485 using Arduino/ESP32.
