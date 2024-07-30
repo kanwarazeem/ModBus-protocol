@@ -101,7 +101,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Acknowledgements
 
-- Thanks to the open-source community for their contributions to Modbus libraries and documentation.
-- Special mention to [Your Contributors](https://github.com/kanwarazeem/modbus-rs485-arduino/graphs/contributors) for their valuable input and feedback.
-
+Thanks to the open-source community for their contributions to Modbus libraries and documentation.
 We hope this project helps you successfully implement and understand the Modbus protocol over RS-485 using Arduino/ESP32.
