@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ModBus Protocol with RS-485 using Arduino</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+            padding: 60px 0;
+            text-align: center;
+            color: white;
+            border-bottom: 3px solid rgba(255,255,255,0.2);
+        }
+        
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        header p {
+            font-size: 1.3em;
+            opacity: 0.9;
+        }
+        
+        .content {
+            background: white;
+            margin: 40px 0;
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .feature-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature-card h3 {
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 30px 0;
+        }
+        
+        .btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+        
+        .btn-secondary {
+            background: white;
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+        
+        .btn-secondary:hover {
+            background: #667eea;
+            color: white;
+        }
+        
+        h2 {
+            color: #667eea;
+            margin: 30px 0 15px 0;
+            font-size: 2em;
+        }
+        
+        h3 {
+            color: #764ba2;
+            margin: 20px 0 10px 0;
+        }
+        
+        .tech-stack {
+            background: #f5f5f5;
+            padding: 20px;
+            border-left: 4px solid #667eea;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        
+        .tech-stack ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+        }
+        
+        .tech-stack li:before {
+            content: "✓ ";
+            color: #667eea;
+            font-weight: bold;
+            margin-right: 5px;
+        }
+        
+        footer {
+            background: rgba(0,0,0,0.1);
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 40px;
+            border-top: 3px solid rgba(255,255,255,0.2);
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .stat-card {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            border-top: 3px solid #667eea;
+        }
+        
+        .stat-card .number {
+            font-size: 2em;
+            color: #667eea;
+            font-weight: bold;
+        }
+        
+        .stat-card .label {
+            color: #666;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>⚡ ModBus Protocol with RS-485</h1>
+            <p>Industrial Communication Made Simple with Arduino</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="content">
+            <h2>🎯 What is This Project?</h2>
+            <p>A comprehensive, production-ready implementation of the Modbus RTU protocol over RS-485 networks using Arduino. Perfect for industrial IoT, building automation, and educational projects.</p>
+
+            <div class="stats">
+                <div class="stat-card">
+                    <div class="number">100+</div>
+                    <div class="label">Code Examples</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">Master & Slave</div>
+                    <div class="label">Implementations</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">Production Ready</div>
+                    <div class="label">Quality</div>
+                </div>
+            </div>
+
+            <h2>✨ Key Features</h2>
+            <div class="features">
+                <div class="feature-card">
+                    <h3>📚 Comprehensive Docs</h3>
+                    <p>In-depth explanations of Modbus protocol and RS-485 characteristics with best practices.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>💻 Sample Code</h3>
+                    <p>Working examples for both master and slave devices with error handling.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🔧 Easy Setup</h3>
+                    <p>Simple hardware configuration with wiring diagrams and connection guides.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🚀 Scalable</h3>
+                    <p>Guidelines for multi-device networks with up to 247 Modbus nodes.</p>
+                </div>
+            </div>
+
+            <h2>🛠️ Technical Stack</h2>
+            <div class="tech-stack">
+                <ul>
+                    <li>Language: C++</li>
+                    <li>Protocol: Modbus RTU</li>
+                    <li>Hardware: Arduino</li>
+                    <li>Interface: RS-485</li>
+                    <li>Baud Rate: 9600-115200</li>
+                    <li>License: Boost 1.0</li>
+                </ul>
+            </div>
+
+            <h2>🎓 Real-World Applications</h2>
+            <ul>
+                <li><strong>Manufacturing Systems:</strong> PLC communication and sensor integration</li>
+                <li><strong>Building Automation:</strong> HVAC and lighting control</li>
+                <li><strong>Energy Monitoring:</strong> Smart grid and renewable energy systems</li>
+                <li><strong>Remote Sensors:</strong> Distributed data acquisition networks</li>
+                <li><strong>Educational:</strong> Learn embedded systems communication</li>
+            </ul>
+
+            <h2>🚀 Getting Started</h2>
+            <p>Clone the repository and explore the examples directory:</p>
+            <pre style="background: #f5f5f5; padding: 15px; border-radius: 5px; overflow-x: auto;">
+git clone https://github.com/kanwarazeem/ModBus-protocol.git
+cd ModBus-protocol
+# Open examples in Arduino IDE and upload to your board</pre>
+
+            <div class="cta-buttons">
+                <a href="https://github.com/kanwarazeem/ModBus-protocol" class="btn btn-primary">View on GitHub</a>
+                <a href="https://github.com/kanwarazeem/ModBus-protocol/blob/main/PROJECT_SUMMARY.md" class="btn btn-secondary">Read Full Summary</a>
+            </div>
+
+            <h2>📖 Learn More</h2>
+            <p>Check out the comprehensive documentation in the repository for:</p>
+            <ul>
+                <li>Protocol specification and RTU frame format</li>
+                <li>Hardware requirements and connections</li>
+                <li>Complete code examples</li>
+                <li>Error handling and CRC validation</li>
+                <li>Troubleshooting guide</li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024-2026 Kanwar Azeem | Industrial Communication Made Simple</p>
+            <p>⭐ If you find this helpful, please star the repository!</p>
+        </div>
+    </footer>
+</body>
+</html>
